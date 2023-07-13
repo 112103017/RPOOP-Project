@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+    <div class="home-content"></div>
+    <div class="home-properties">
+        <div class="home-heading">COEP Roommate Finder</div>
+        <div class="home-paragraph"><p>Find your perfect roommate</p></div>
+        {% if user.is_authenticated %}
+        <a class="home-button" href="{% url 'add_property' %}" role="button">Add Your Profile</a>
+        {% else %}
+        <a class="home-button" href="{% url 'signup' %}" role="button">Get Started</a>
+        {% endif %}
+    </div>
+    {% comment %} <div class="home-properties-right">
+        <div class="home-heading">Find a Perfect roommate</div>
+        <div class="home-paragraph"><p>Find a person that have common interests as of you </p></div>
+        {% if user.is_authenticated %}
+        <a class="home-button" href="{% url 'recommended_property' %}" role="button">Find Roommate for me</a>
+        {% else %}
+        <a class="home-button" href="{% url 'signup' %}" role="button">Get Started</a>
+        {% endif %}
+
+    </div> {% endcomment %}
+
+{% endblock %}
